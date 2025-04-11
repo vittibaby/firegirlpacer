@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>火之女 Pacer - Track Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>火之女 Pacer</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Pacing Calculator</a></li>
+                    <li><a href="track.html" class="active">Track Timer</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="calculator-card">
+                <h2>Track Timer</h2>
+                <div class="input-group">
+                    <label for="pace">Enter Your Target Pace (min/km):</label>
+                    <div class="pace-input">
+                        <input type="number" id="pace-minutes" placeholder="Minutes" min="0">
+                        <input type="number" id="pace-seconds" placeholder="Seconds" min="0" max="59" step="0.1">
+                    </div>
+                </div>
+
+                <button id="calculate-track">Calculate Track Times</button>
+
+                <div class="result" id="track-result">
+                    <h3>Track Segment Times:</h3>
+                    <div class="track-segments">
+                        <div class="segment">
+                            <span>100m:</span>
+                            <span id="time-100m">-</span>
+                        </div>
+                        <div class="segment">
+                            <span>200m:</span>
+                            <span id="time-200m">-</span>
+                        </div>
+                        <div class="segment">
+                            <span>400m:</span>
+                            <span id="time-400m">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
