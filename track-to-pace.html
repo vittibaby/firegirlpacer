@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>火之女 Pacer</title>
+    <title>火之女 Pacer - Track Time to Pacing</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,40 +16,38 @@
             <h1>火之女 Pacer</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Pacing Calculator</a></li>
+                    <li><a href="index.html">Pacing Calculator</a></li>
                     <li><a href="track.html">Pace to Track Time</a></li>
-                    <li><a href="track-to-pace.html">Track Time to Pacing</a></li>
+                    <li><a href="track-to-pace.html" class="active">Track Time to Pacing</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
             <div class="calculator-card">
-                <h2>Pacing Calculator</h2>
+                <h2>Track Time to Pacing</h2>
                 <div class="input-group">
-                    <label for="distance">Select Distance:</label>
-                    <select id="distance">
-                        <option value="5">5km</option>
-                        <option value="10">10km</option>
-                        <option value="21.0975">21.0975km (Half Marathon)</option>
-                        <option value="42.195">42.195km (Marathon)</option>
+                    <label for="track-distance">Select Track Distance:</label>
+                    <select id="track-distance">
+                        <option value="100">100m</option>
+                        <option value="200">200m</option>
+                        <option value="400">400m</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label>Target Time:</label>
+                    <label>Enter Your Time:</label>
                     <div class="time-inputs">
-                        <input type="number" id="hours" placeholder="Hours" min="0">
-                        <input type="number" id="minutes" placeholder="Minutes" min="0" max="59">
-                        <input type="number" id="seconds" placeholder="Seconds" min="0" max="59">
+                        <input type="number" id="track-minutes" placeholder="Minutes" min="0">
+                        <input type="number" id="track-seconds" placeholder="Seconds" min="0" max="59" step="0.1">
                     </div>
                 </div>
 
-                <button id="calculate">Calculate Pace</button>
+                <button id="calculate-pace">Calculate Pace</button>
 
-                <div class="result" id="result">
-                    <h3>Your Required Pace:</h3>
-                    <p id="pace-result">-</p>
+                <div class="result" id="pace-result-container">
+                    <h3>Your Calculated Pace:</h3>
+                    <p id="track-pace-result">-</p>
                 </div>
             </div>
         </main>

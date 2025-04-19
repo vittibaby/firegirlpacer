@@ -1,13 +1,21 @@
 // Pacing Calculator
 document.addEventListener('DOMContentLoaded', function() {
+    // Distance Calculator
     const calculateBtn = document.getElementById('calculate');
     if (calculateBtn) {
         calculateBtn.addEventListener('click', calculatePace);
     }
 
+    // Pace to Track Time
     const calculateTrackBtn = document.getElementById('calculate-track');
     if (calculateTrackBtn) {
         calculateTrackBtn.addEventListener('click', calculateTrackTimes);
+    }
+    
+    // Track to Pace Time
+    const calculatePaceBtn = document.getElementById('calculate-pace');
+    if (calculatePaceBtn) {
+        calculatePaceBtn.addEventListener('click', calculatePaceFromTrack);
     }
 });
 
@@ -64,4 +72,29 @@ function formatTrackTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = (seconds % 60).toFixed(1);
     return `${minutes}:${remainingSeconds.toString().padStart(4, '0')}`;
+}
+
+function calculatePaceFromTrack() {
+    const trackDistance = parseInt(document.getElementById('track-distance').value);
+    const minutes = parseInt(document.getElementById('track-minutes').value) || 0;
+    const seconds = parseFloat(document.getElementById('track-seconds').value) || 0;
+    
+    if (minutes === 0 && seconds === 0) {
+        alert('Please enter a valid time');
+        return;
+    }
+    
+    // Convert time to total seconds
+    const totalSeconds = (minutes * 60) + seconds;
+    
+    // Calculate pace in seconds per kilometer
+    const paceSecondsPerKm = (totalSeconds * 1000) / trackDistance;
+    
+    // Convert to minutes and seconds
+    const paceMinutes = Math.floor(paceSecondsPerKm / 60);
+    const paceSeconds = (paceSecondsPerKm % 60).toFixed(1);
+    
+    // Format the result
+    const result = `${paceMinutes}:${paceSeconds.toString().padStart(4, '0')} min/km`;
+    document.getElementById('track-pace-result').textContent = result;
 } 
